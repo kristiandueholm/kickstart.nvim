@@ -857,6 +857,15 @@ require('lazy').setup({
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          path = {
+            opts = {
+              get_cwd = function(_)
+                return vim.fn.getcwd()
+              end,
+
+              trailing_slash = true,
+            },
+          },
         },
       },
 
